@@ -12,6 +12,7 @@ public class Skolebok extends Bok
 		skolefag = sk;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return super.toString() + "Klassetrinn: " + klassetrinn + "\nSkolefag: " + skolefag + "\n";

@@ -7,7 +7,7 @@ import java.awt.event.*;
 public class BokArkiv extends JFrame
 {
 	JTextField forfatter, tittel, sideantall, pris, fagområde, skolefag, klassetrinn, sjanger, målform, språk;
-	JButton regFag, regSkole, regNRoman, regURoman, visBøker;
+	JButton regFag, regSkole, regNRoman, regURoman, visBøker, lagre;
 	JTextArea display;
 	
 	private Bokregister register = new Bokregister();
@@ -36,14 +36,14 @@ public class BokArkiv extends JFrame
 		regNRoman	= new JButton("Registrer norsk roman");
 		regURoman 	= new JButton("Registrer utenlandsk roman");
 		visBøker 	= new JButton("Vis bokregister");
-		
+		lagre           = new JButton("SAVE THAT BITHC");
 		Knappelytter lytter = new Knappelytter();
 		regFag.addActionListener(lytter);
 		regSkole.addActionListener(lytter);
 		regNRoman.addActionListener(lytter);
 		regURoman.addActionListener(lytter);
 		visBøker.addActionListener(lytter);
-		
+		lagre.addActionListener(lytter);
 	
 		Container c = getContentPane();
 		c.setLayout( new FlowLayout() );
@@ -74,7 +74,7 @@ public class BokArkiv extends JFrame
 		c.add(regNRoman);
 		c.add(regURoman);
 		c.add(visBøker);
-		
+		c.add(lagre);
 		c.add(scroll);
 		
 		
@@ -96,7 +96,13 @@ public class BokArkiv extends JFrame
 				registrerUtenlandskRoman();
 			else if (e.getSource() == visBøker)
 				visBøker();
+                        else if (e.getSource() == lagre)
+                                lagre();
 		}
+
+    private void lagre() {
+      register.skrivTilfil("Kittens.txt");
+    }
 	}
 	
 	public void registrerFagBok()

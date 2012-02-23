@@ -10,6 +10,7 @@ public class UtenlandskRoman extends Roman
 		språk = sp;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return super.toString() + "Språk: " + språk + "\n";

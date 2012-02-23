@@ -10,6 +10,7 @@ public abstract class Roman extends Bok
 		sjanger = sj;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return super.toString() + "Sjanger: " + sjanger + "\n";

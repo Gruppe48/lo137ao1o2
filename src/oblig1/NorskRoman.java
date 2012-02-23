@@ -10,6 +10,7 @@ public class NorskRoman extends Roman
 		målform = må;
 	}
 	
+        @Override
 	public String toString()
 	{
 		return super.toString() + "Målform: " + målform + "\n";
