@@ -1,3 +1,5 @@
+package oblig1;
+
 public class NorskRoman extends Roman
 {
 	private String målform;

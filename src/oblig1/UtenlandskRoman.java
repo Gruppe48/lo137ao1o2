@@ -1,3 +1,5 @@
+package oblig1;
+
 public class UtenlandskRoman extends Roman
 {
 	private String språk;

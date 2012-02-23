@@ -1,3 +1,5 @@
+package oblig1;
+
 public abstract class Roman extends Bok 
 {
 	protected String sjanger;

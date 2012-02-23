@@ -1,3 +1,5 @@
+package oblig1;
+
 public class Skolebok extends Bok
 {
 	private int klassetrinn;

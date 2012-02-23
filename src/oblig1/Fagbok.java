@@ -1,3 +1,5 @@
+package oblig1;
+
 public class Fagbok extends Bok
 {
 	private String fagområde;

@@ -1,3 +1,5 @@
+package oblig1;
+
 import javax.swing.JTextArea;
 
 public class Bokregister

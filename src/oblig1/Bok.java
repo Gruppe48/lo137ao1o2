@@ -1,3 +1,5 @@
+package oblig1;
+
 public abstract class Bok
 {
 	private String forfatter;
