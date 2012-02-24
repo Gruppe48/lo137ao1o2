@@ -1,5 +1,8 @@
 package oblig1;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,7 +10,7 @@ import java.awt.event.*;
 public class BokArkiv extends JFrame
 {
 	JTextField forfatter, tittel, sideantall, pris, fagområde, skolefag, klassetrinn, sjanger, målform, språk;
-	JButton regFag, regSkole, regNRoman, regURoman, visBøker;
+	JButton regFag, regSkole, regNRoman, regURoman, visBøker, lagre;
 	JTextArea display;
 	
 	private Bokregister register = new Bokregister();
@@ -15,7 +18,11 @@ public class BokArkiv extends JFrame
 	public BokArkiv()
 	{
 		super("BokArkiv");
-	
+                try {
+                  register.lesFraFil("bokliste.dat");
+                } catch (IOException ex) {
+                  Logger.getLogger(BokArkiv.class.getName()).log(Level.SEVERE, null, ex);
+                }
 		forfatter 	= new JTextField(20);
 		tittel  	= new JTextField(20);
 		sideantall	= new JTextField(7);
@@ -36,14 +43,14 @@ public class BokArkiv extends JFrame
 		regNRoman	= new JButton("Registrer norsk roman");
 		regURoman 	= new JButton("Registrer utenlandsk roman");
 		visBøker 	= new JButton("Vis bokregister");
-		
+		lagre           = new JButton("SAVE THAT BITHC");
 		Knappelytter lytter = new Knappelytter();
 		regFag.addActionListener(lytter);
 		regSkole.addActionListener(lytter);
 		regNRoman.addActionListener(lytter);
 		regURoman.addActionListener(lytter);
 		visBøker.addActionListener(lytter);
-		
+		lagre.addActionListener(lytter);
 	
 		Container c = getContentPane();
 		c.setLayout( new FlowLayout() );
@@ -74,16 +81,25 @@ public class BokArkiv extends JFrame
 		c.add(regNRoman);
 		c.add(regURoman);
 		c.add(visBøker);
-		
+		c.add(lagre);
 		c.add(scroll);
 		
 		
 		setSize(550, 500);
 		setVisible(true);
+                addWindowListener(new WindowAdapter() {
+
+                  @Override
+                  public void windowClosing(WindowEvent e) {
+                    register.skrivTilfil("bokliste.dat");
+                    System.exit(0);
+                  }
+                });
 	}
 	
 	private class Knappelytter implements ActionListener
 	{
+                @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if(e.getSource() == regFag)
@@ -97,7 +113,9 @@ public class BokArkiv extends JFrame
 			else if (e.getSource() == visBøker)
 				visBøker();
 		}
-	}
+
+     
+        }
 	
 	public void registrerFagBok()
 	{
