@@ -38,10 +38,11 @@ public class Fagbok extends Bok
           try {
             super.lesObjektFraFil(input);
             fagområde = input.readUTF();
+            return true;
           } catch (IOException ex) {
             Logger.getLogger(Bok.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
           }
           //< Leser verdier fra fil og lagrer dem i de tilhørende datafeltene. >
-          return false;
         }
 }

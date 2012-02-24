@@ -76,7 +76,7 @@ public class Bokregister
       Logger.getLogger(Bokregister.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
-  byte[] typer = {1, 2, 3, 4};
+
   public void lesFraFil( String filnavn ) throws IOException {
     /*< Åpne riktig filtype.
     For alle objektene som det finns data til på filen:
@@ -88,15 +88,32 @@ public class Bokregister
     try {
       DataInputStream din = new DataInputStream(new FileInputStream(filnavn));
       while (true) {
-        byte type = din.readByte();
+        String type = din.readUTF();
       
-        switch (type) {
-          case 1:
-            break;
-          case 2:
-            break;
-          
+        if (type.equals("Fagbok")) {
+          Fagbok fagbok = new Fagbok("Ingen","Ingen",0,0.00,"Ingen");
+          if (fagbok.lesObjektFraFil(din)) {
+            settInn(fagbok);
+          }
+        }
+        else if (type.equals("Skolebok")) {
+          Skolebok skolebok = new Skolebok("Ingen","Ingen",0,0.00,0, "Ingen");
+          if (skolebok.lesObjektFraFil(din)) {
+            settInn(skolebok);
+          }
+        }
+        else if (type.equals("Norskroman")) {
+          NorskRoman roman = new NorskRoman("Ingen","Ingen",0,0.00,"Ingen", "Ingen");
+          if (roman.lesObjektFraFil(din)) {
+            settInn(roman);
+          }
         } 
+        else if (type.equals("Utenlandskroman")) {
+          UtenlandskRoman ulroman = new UtenlandskRoman("Ingen","Ingen",0,0.00,"Ingen", "Ingen");
+          if (ulroman.lesObjektFraFil(din)) {
+            settInn(ulroman);
+          }
+        }   
       }
     } catch (FileNotFoundException ex) {
       Logger.getLogger(Bokregister.class.getName()).log(Level.SEVERE, null, ex);

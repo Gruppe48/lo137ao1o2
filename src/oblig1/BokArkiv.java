@@ -1,5 +1,8 @@
 package oblig1;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,7 +18,11 @@ public class BokArkiv extends JFrame
 	public BokArkiv()
 	{
 		super("BokArkiv");
-	
+                try {
+                  register.lesFraFil("bokliste.dat");
+                } catch (IOException ex) {
+                  Logger.getLogger(BokArkiv.class.getName()).log(Level.SEVERE, null, ex);
+                }
 		forfatter 	= new JTextField(20);
 		tittel  	= new JTextField(20);
 		sideantall	= new JTextField(7);
@@ -80,10 +87,19 @@ public class BokArkiv extends JFrame
 		
 		setSize(550, 500);
 		setVisible(true);
+                addWindowListener(new WindowAdapter() {
+
+                  @Override
+                  public void windowClosing(WindowEvent e) {
+                    register.skrivTilfil("bokliste.dat");
+                    System.exit(0);
+                  }
+                });
 	}
 	
 	private class Knappelytter implements ActionListener
 	{
+                @Override
 		public void actionPerformed(ActionEvent e)
 		{
 			if(e.getSource() == regFag)
@@ -96,14 +112,10 @@ public class BokArkiv extends JFrame
 				registrerUtenlandskRoman();
 			else if (e.getSource() == visBøker)
 				visBøker();
-                        else if (e.getSource() == lagre)
-                                lagre();
 		}
 
-    private void lagre() {
-      register.skrivTilfil("Kittens.txt");
-    }
-	}
+     
+        }
 	
 	public void registrerFagBok()
 	{
