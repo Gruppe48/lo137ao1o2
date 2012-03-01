@@ -1,3 +1,17 @@
+/**
+ *
+ * @author Kristoffer Berdal <web@flexd.net>
+ * @studnr 180212
+
+ * @author Even Augdal <even.augdal@gmail.com>
+ * @studnr 181091
+ * 
+ * @author Tommy Nyrud <s180487@stud.hioa.no>
+ * @studnr 180487
+ * 
+ * @date Feb 20, 2012
+ */
+
 package oblig1;
 
 import java.io.IOException;
@@ -17,102 +31,107 @@ public class BokArkiv extends JFrame
 	
 	public BokArkiv()
 	{
-		super("BokArkiv");
-                try {
-                  register.lesFraFil("bokliste.dat");
-                } catch (IOException ex) {
-                  Logger.getLogger(BokArkiv.class.getName()).log(Level.SEVERE, null, ex);
-                }
-		forfatter 	= new JTextField(20);
-		tittel  	= new JTextField(20);
-		sideantall	= new JTextField(7);
-		pris		= new JTextField(7);
-		fagområde 	= new JTextField(20);
-		skolefag	= new JTextField(20);
-		klassetrinn	= new JTextField(4);
-		sjanger		= new JTextField(10);
-		målform		= new JTextField(2);
-		språk		= new JTextField(15); 
-		
-		display = new JTextArea(15, 45);
-		display.setEditable(false);
-		JScrollPane scroll = new JScrollPane(display);
-		
-		regFag 		= new JButton("Registrer fagbok");
-		regSkole 	= new JButton("Registrer skolebok");
-		regNRoman	= new JButton("Registrer norsk roman");
-		regURoman 	= new JButton("Registrer utenlandsk roman");
-		visBøker 	= new JButton("Vis bokregister");
-		lagre           = new JButton("SAVE THAT BITHC");
-		Knappelytter lytter = new Knappelytter();
-		regFag.addActionListener(lytter);
-		regSkole.addActionListener(lytter);
-		regNRoman.addActionListener(lytter);
-		regURoman.addActionListener(lytter);
-		visBøker.addActionListener(lytter);
-		lagre.addActionListener(lytter);
-	
-		Container c = getContentPane();
-		c.setLayout( new FlowLayout() );
-		
-		c.add(new JLabel("Forfatter:"));
-		c.add(forfatter);
-		c.add(new JLabel("Tittel:"));
-		c.add(tittel);
-		c.add(new JLabel("Sideantall:"));
-		c.add(sideantall);
-		c.add(new JLabel("Pris:"));
-		c.add(pris);
-		c.add(new JLabel("Fagområde:"));
-		c.add(fagområde);
-		c.add(new JLabel("Skolefag:"));
-		c.add(skolefag);
-		c.add(new JLabel("Klassetrinn:"));
-		c.add(klassetrinn);
-		c.add(new JLabel("Sjanger:"));
-		c.add(sjanger);
-		c.add(new JLabel("Målform:"));
-		c.add(målform);
-		c.add(new JLabel("Språk:"));
-		c.add(språk);
-		
-		c.add(regFag);
-		c.add(regSkole);
-		c.add(regNRoman);
-		c.add(regURoman);
-		c.add(visBøker);
-		c.add(lagre);
-		c.add(scroll);
-		
-		
-		setSize(550, 500);
-		setVisible(true);
-                addWindowListener(new WindowAdapter() {
+          super("BokArkiv");
+          try {
+            register.lesFraFil("bokliste.dat");
+          } catch (IOException ex) {
+            Logger.getLogger(BokArkiv.class.getName()).log(Level.SEVERE, null, ex);
+          }
+          forfatter 	= new JTextField(20);
+          tittel  	= new JTextField(20);
+          sideantall	= new JTextField(7);
+          pris		= new JTextField(7);
+          fagområde 	= new JTextField(20);
+          skolefag	= new JTextField(20);
+          klassetrinn	= new JTextField(4);
+          sjanger		= new JTextField(10);
+          målform		= new JTextField(2);
+          språk		= new JTextField(15); 
 
-                  @Override
-                  public void windowClosing(WindowEvent e) {
-                    register.skrivTilfil("bokliste.dat");
-                    System.exit(0);
-                  }
-                });
+          display = new JTextArea(15, 45);
+          display.setEditable(false);
+          JScrollPane scroll = new JScrollPane(display);
+
+          regFag 		= new JButton("Registrer fagbok");
+          regSkole 	= new JButton("Registrer skolebok");
+          regNRoman	= new JButton("Registrer norsk roman");
+          regURoman 	= new JButton("Registrer utenlandsk roman");
+          visBøker 	= new JButton("Vis bokregister");
+          lagre           = new JButton("SAVE THAT BITHC");
+          Knappelytter lytter = new Knappelytter();
+          regFag.addActionListener(lytter);
+          regSkole.addActionListener(lytter);
+          regNRoman.addActionListener(lytter);
+          regURoman.addActionListener(lytter);
+          visBøker.addActionListener(lytter);
+          lagre.addActionListener(lytter);
+
+          Container c = getContentPane();
+          c.setLayout( new FlowLayout() );
+
+          c.add(new JLabel("Forfatter:"));
+          c.add(forfatter);
+          c.add(new JLabel("Tittel:"));
+          c.add(tittel);
+          c.add(new JLabel("Sideantall:"));
+          c.add(sideantall);
+          c.add(new JLabel("Pris:"));
+          c.add(pris);
+          c.add(new JLabel("Fagområde:"));
+          c.add(fagområde);
+          c.add(new JLabel("Skolefag:"));
+          c.add(skolefag);
+          c.add(new JLabel("Klassetrinn:"));
+          c.add(klassetrinn);
+          c.add(new JLabel("Sjanger:"));
+          c.add(sjanger);
+          c.add(new JLabel("Målform:"));
+          c.add(målform);
+          c.add(new JLabel("Språk:"));
+          c.add(språk);
+
+          c.add(regFag);
+          c.add(regSkole);
+          c.add(regNRoman);
+          c.add(regURoman);
+          c.add(visBøker);
+          c.add(lagre);
+          c.add(scroll);
+
+
+          setSize(550, 500);
+          setVisible(true);
+          addWindowListener(new WindowAdapter() {
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+              register.skrivTilfil("bokliste.dat");
+              System.exit(0);
+            }
+          });
 	}
 	
 	private class Knappelytter implements ActionListener
 	{
-                @Override
-		public void actionPerformed(ActionEvent e)
-		{
-			if(e.getSource() == regFag)
-				registrerFagBok();
-			else if(e.getSource() == regSkole)
-				registrerSkoleBok();
-			else if(e.getSource() == regNRoman)
-				registrerNorskRoman();
-			else if(e.getSource() == regURoman)
-				registrerUtenlandskRoman();
-			else if (e.getSource() == visBøker)
-				visBøker();
-		}
+          @Override
+          public void actionPerformed(ActionEvent e)
+          {
+            if(e.getSource() == regFag) {
+              registrerFagBok();
+            }
+            else if(e.getSource() == regSkole) {
+              registrerSkoleBok();
+            }
+            else if(e.getSource() == regNRoman) {
+              registrerNorskRoman();
+            }
+            else if(e.getSource() == regURoman) {
+              registrerUtenlandskRoman();
+            }
+            else if (e.getSource() == visBøker) {
+              visBøker();
+            }
+          }
 
      
         }
