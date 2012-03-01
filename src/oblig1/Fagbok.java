@@ -29,6 +29,10 @@ public class Fagbok extends Bok
 		super(f, t, s, p);
 		fagområde = fa;
 	}
+
+        public Fagbok() {
+
+        }
 	
         @Override
 	public String toString()

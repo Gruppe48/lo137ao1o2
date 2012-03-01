@@ -29,6 +29,10 @@ public class NorskRoman extends Roman
 		super(f, t, s, p, sj);
 		målform = må;
 	}
+        
+        public NorskRoman() {
+
+        }
 	
         @Override
 	public String toString()

@@ -106,25 +106,25 @@ public class Bokregister
         String type = din.readUTF();
       
         if (type.equals("Fagbok")) {
-          Fagbok fagbok = new Fagbok("Ingen","Ingen",0,0.00,"Ingen");
+          Fagbok fagbok = new Fagbok();
           if (fagbok.lesObjektFraFil(din)) {
             settInn(fagbok);
           }
         }
         else if (type.equals("Skolebok")) {
-          Skolebok skolebok = new Skolebok("Ingen","Ingen",0,0.00,0, "Ingen");
+          Skolebok skolebok = new Skolebok();
           if (skolebok.lesObjektFraFil(din)) {
             settInn(skolebok);
           }
         }
         else if (type.equals("Norskroman")) {
-          NorskRoman roman = new NorskRoman("Ingen","Ingen",0,0.00,"Ingen", "Ingen");
+          NorskRoman roman = new NorskRoman();
           if (roman.lesObjektFraFil(din)) {
             settInn(roman);
           }
         } 
         else if (type.equals("Utenlandskroman")) {
-          UtenlandskRoman ulroman = new UtenlandskRoman("Ingen","Ingen",0,0.00,"Ingen", "Ingen");
+          UtenlandskRoman ulroman = new UtenlandskRoman();
           if (ulroman.lesObjektFraFil(din)) {
             settInn(ulroman);
           }

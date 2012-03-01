@@ -36,6 +36,9 @@ public abstract class Bok
 		pris		= p; 
 		neste		= null;
 	}
+        public Bok() {
+          
+        }
 	
 	public String toString()
 	{

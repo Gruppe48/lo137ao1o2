@@ -30,6 +30,9 @@ public abstract class Roman extends Bok
 		sjanger = sj;
 	}
 	
+        public Roman() {
+
+        }
         @Override
 	public String toString()
 	{

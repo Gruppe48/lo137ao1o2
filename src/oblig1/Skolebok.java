@@ -32,6 +32,9 @@ public class Skolebok extends Bok
 		skolefag = sk;
 	}
 	
+        public Skolebok() {
+
+        }
         @Override
 	public String toString()
 	{

@@ -30,6 +30,10 @@ public class UtenlandskRoman extends Roman
 		språk = sp;
 	}
 	
+        public UtenlandskRoman() {
+
+        }
+        
         @Override
 	public String toString()
 	{
